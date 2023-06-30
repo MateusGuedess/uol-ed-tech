@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -23,10 +24,10 @@ function SignIn() {
               duration: 1,
             }}
             exit={{ top: "150%" }}
-            className="drop-shadow-2xl w-30 h-[400px] absolute  border-[1px]  border-black rounded-lg py-[30px] px-[20px]"
+            className=" w-30 h-[400px] absolute  border-[1px]  border-black rounded-lg py-[30px] px-[20px]"
           >
             <form className="flex flex-col" onSubmit={handleFormState}>
-              <p className="text-black font-bold text-xl">
+              <p className="text-black font-bold text-[28px]">
                 Log into your{" "}
                 <p className="text-[#a29bfe] font-bold">account</p>
               </p>
@@ -37,24 +38,44 @@ function SignIn() {
                   Create one
                 </Link>
               </p>
-              <label>E-mail:</label>
+              <label
+                className="mt-[20px] text-[12px] font-bold text-[#959595]"
+                htmlFor="name"
+              >
+                E-mail:
+              </label>
               <Input
                 type="text"
-                name=""
+                name="email"
                 value={email}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setEmail(e.target.value)
                 }
+                id="name"
+                className="mt-[10px]"
               />
-              <label>Password:</label>
+              <label
+                className="mt-[20px] text-[12px] font-bold text-[#959595]"
+                htmlFor="password"
+              >
+                Password:
+              </label>
               <Input
                 type="text"
+                name="password"
+                id="password"
                 value={password}
+                className="focus:ring-0 ring-0 border-[#a29bfe]"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setPassword(e.target.value)
                 }
               />
-              <button type="submit">Sign In</button>
+              <Button
+                className="w-full h-[35px] mt-[15px] bg-[#a29bfe] rounded-2xl text-[#fff] font-bold cursor-pointer"
+                type="submit"
+              >
+                Sign In
+              </Button>
             </form>
           </motion.div>
         </AnimatePresence>

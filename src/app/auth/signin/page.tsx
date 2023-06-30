@@ -3,15 +3,17 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 function SignIn() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const router = useRouter();
 
   const handleFormState = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Logged");
+    router.push("/");
   };
   return (
     <div className="w-full h-full">
@@ -20,10 +22,10 @@ function SignIn() {
           <motion.div
             initial={{ top: "-50%" }}
             animate={{ top: "inherit" }}
+            exit={{ top: "150%" }}
             transition={{
               duration: 1,
             }}
-            exit={{ top: "150%" }}
             className=" w-30 h-[400px] absolute  border-[1px]  border-black rounded-lg py-[30px] px-[20px]"
           >
             <form className="flex flex-col" onSubmit={handleFormState}>

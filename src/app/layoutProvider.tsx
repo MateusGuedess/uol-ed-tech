@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname } from "next/navigation";
 
 interface ILayoutProvider {
@@ -8,9 +10,13 @@ function LayoutProvider({ children }: ILayoutProvider) {
   const pathname = usePathname();
   return (
     <>
-      {pathname != "/signin" && pathname != "/signup" && <h1>Header</h1>}
+      {pathname != "/auth/signin" && pathname != "/auth/signup" && (
+        <h1>Header</h1>
+      )}
       {children}
-      {pathname != "/signin" && pathname != "/signup" && <h1>Footer</h1>}
+      {pathname != "/auth/signin" && pathname != "/auth/signup" && (
+        <h1>Footer</h1>
+      )}
     </>
   );
 }

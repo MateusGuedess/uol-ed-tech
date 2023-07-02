@@ -1,3 +1,4 @@
+"use client";
 import { History, Table } from "@/components";
 
 const users = [

@@ -13,6 +13,7 @@ function SignIn() {
 
   const handleFormState = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    localStorage.setItem("authUOL", JSON.stringify(true));
     router.push("/");
   };
   return (

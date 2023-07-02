@@ -2,7 +2,7 @@ interface HistoryTitleProps {
   title: string;
 }
 
-function HistoryTitle({ title }) {
+function HistoryTitle({ title }: HistoryTitleProps) {
   return <div>{title}</div>;
 }
 

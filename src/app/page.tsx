@@ -1,5 +1,7 @@
 "use client";
 import { History, Table } from "@/components";
+import { DataTableDemo } from "@/components/DataTable";
+import { useState } from "react";
 
 const users = [
   {
@@ -11,12 +13,17 @@ const users = [
 ];
 
 export default function Home() {
+  const [search, setSearch] = useState();
+
+  function handleClick() {}
+
   return (
     <main className="flex h-full w-full flex justify-between">
       <Table.Root>
-        <Table.Actions onButtonClick={() => {}} />
+        <Table.Actions onButtonClick={handleClick} />
         <Table.Content data={users} />
       </Table.Root>
+      <DataTableDemo />
       <History.Root>
         <History.Title title="Atividades" />
         <History.Content action="Foto Atualizada" photo="" title="" />

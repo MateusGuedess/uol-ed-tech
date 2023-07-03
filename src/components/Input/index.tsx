@@ -7,6 +7,7 @@ interface InputProps {
   name: string;
   id: string;
   className: string;
+  placeholder: string;
 }
 
 function Input({
@@ -16,9 +17,11 @@ function Input({
   name = "",
   id = "",
   className = "",
+  placeholder = "",
 }: Partial<InputProps>) {
   return (
     <input
+      placeholder={placeholder}
       style={{ border: "1.5px solid #e9e9e9" }}
       type={type}
       value={value}

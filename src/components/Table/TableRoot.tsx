@@ -5,7 +5,7 @@ interface TableRoot {
 }
 
 function TableRoot({ children }: TableRoot) {
-  return <div>{children}</div>;
+  return <div className="flex flex-col w-full">{children}</div>;
 }
 
 export default TableRoot;

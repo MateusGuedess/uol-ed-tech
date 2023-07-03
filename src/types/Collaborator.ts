@@ -1,5 +1,5 @@
 export interface Collaborator {
-  id: string;
+  cpf: string;
   name: string;
   email: string;
   position: string;

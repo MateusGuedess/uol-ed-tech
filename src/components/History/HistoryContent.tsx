@@ -11,7 +11,7 @@ function HistoryContent({
   title,
   comment,
 }: HistoryContentProps) {
-  return <div></div>;
+  return <div className="border-[1px]">teste</div>;
 }
 
 export default HistoryContent;

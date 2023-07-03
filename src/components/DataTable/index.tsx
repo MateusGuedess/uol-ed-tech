@@ -30,36 +30,71 @@ import { data } from "./collaboratorMock";
 
 export const columns: ColumnDef<Collaborator>[] = [
   {
-    accessorKey: "id",
-    header: "Id",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("id")}</div>,
-  },
-  {
     accessorKey: "name",
     header: ({ column }) => {
       return (
-        <Button
+        <div
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-center flex items-center"
         >
-          Name
+          Nome
           <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        </div>
       );
     },
     cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
   },
   {
-    accessorKey: "email",
-    header: () => <div className="text-right">email</div>,
+    accessorKey: "position",
+    header: ({ column }) => (
+      <div
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        className="text-center flex items-center"
+      >
+        Position
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </div>
+    ),
     cell: ({ row }) => {
       return (
-        <div className="text-right font-medium">{row.getValue("email")}</div>
+        <div className="text-left font-medium">{row.getValue("position")}</div>
+      );
+    },
+  },
+  {
+    accessorKey: "cpf",
+    header: ({ column }) => (
+      <div
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        className="text-center flex items-center"
+      >
+        CPF
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </div>
+    ),
+    cell: ({ row }) => {
+      return <div className="text-left font-medium">{row.getValue("cpf")}</div>;
+    },
+  },
+  {
+    accessorKey: "email",
+    header: ({ column }) => (
+      <div
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        className="text-center flex items-center"
+      >
+        email
+      </div>
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="text-left font-medium">{row.getValue("email")}</div>
       );
     },
   },
 ];
 
-export function DataTableDemo() {
+export function DataTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [columnVisibility, setColumnVisibility] =
@@ -86,15 +121,17 @@ export function DataTableDemo() {
   });
 
   return (
-    <div className="w-full">
-      <div className="flex items-center py-4">
+    <div className="w-full mx-[15px]">
+      <div className="flex items-center justify-between py-4">
         <Input
           placeholder="Filter emails..."
           value={globalFilter ?? ""}
           onChange={(e) => setGlobalFilter(String(e.target.value))}
-          className="max-w-sm"
+          className="focus:ring-0 ring-0 border-[#a29bfe] rounded-lg"
         />
-        <Button>teste</Button>
+        <Button className="w-[150px] h-[35px]  bg-[#a29bfe] rounded-2xl text-[#fff] font-bold cursor-pointer">
+          Criar
+        </Button>
       </div>
       <div className="rounded-md border">
         <Table>
@@ -147,10 +184,10 @@ export function DataTableDemo() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+        {/* <div className="flex-1 text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
+        </div> */}
         <div className="space-x-2">
           <Button
             // variant="outline"

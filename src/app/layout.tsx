@@ -18,7 +18,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={sourceCodePro.className}>
+      <body className={`${sourceCodePro.className} `}>
         {!pathIsProtected && children}
         {pathIsProtected && (
           <PrivateRoute>
